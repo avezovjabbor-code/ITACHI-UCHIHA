@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Naruto: Shinobi Clash - Desktop brauzerida o'ynaladigan eng zo'r Naruto anime ninja jangi o'yini. Rasengan, Chidori, Amaterasu va Kage Bunshin jutsularini sinab ko'ring!">
+    <meta name="keywords" content="naruto oyini, naruto game, shinobi clash, naruto web game, anime game, rasengan, sasuke chidori">
+    <meta name="author" content="Antigravity Team">
+    <title>NARUTO: SHINOBI CLASH - Anime Ninja Web O'yini</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Ambient Scanline & Glow Overlay -->
+    <div class="bg-ambient-overlay" aria-hidden="true"></div>
+
+    <!-- Main Navigation Header -->
+    <header class="app-header">
+        <div class="brand-wrapper" data-nav="title" id="nav-brand-logo">
+            <img src="assets/logo.jpg" alt="Naruto Shinobi Clash Emblemi" class="brand-logo-img">
+            <div class="brand-text">
+                <h1>Naruto: Shinobi Clash</h1>
+                <span class="brand-subtitle">忍の闘い • Ultimate Ninja Arena</span>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <button class="nav-btn" data-nav="title" id="nav-btn-home">Bosh Sahifa</button>
+            <button class="nav-btn" data-nav="char_select" id="nav-btn-battle">Jang Arenasi</button>
+            <button class="nav-btn" data-nav="dojo" id="nav-btn-dojo">Jutsu Dojo</button>
+            <button class="nav-btn" data-nav="codex" id="nav-btn-codex">Ninja Kodeksi</button>
+        </nav>
+
+        <div class="header-actions">
+            <button class="btn-pill" id="audio-toggle-btn">🔊 Ovoz On</button>
+        </div>
+    </header>
+
+    <!-- Main Application Views Container -->
+    <main class="main-content">
+
+        <!-- ================= VIEW 1: TITLE & HERO SCREEN ================= -->
+        <section id="view-title" class="app-view active">
+            <!-- Hero Banner -->
+            <div class="hero-section" style="background-image: url('assets/arena_bg.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge-tag">HOKAGE ROYALE EDITION</span>
+                    <h2 class="hero-title">Shinobi <span>Clash</span></h2>
+                    <div class="hero-kanji">火影忍者 • 終末の谷の決戦</div>
+                    <p class="hero-desc">
+                        Afsonaviy Oqibat Vodiysida eng kuchli ninjalar o'rtasidagi shiddatli jang! Naruto, Sasuke, Kakashi va Itachi bilan haqiqiy Rasengan, Chidori va Amaterasu jutsularini ishga soling!
+                    </p>
+                    <div class="hero-action-btns">
+                        <button class="btn-epic" data-nav="char_select" id="hero-btn-start-battle">
+                            <span>⚔️ JANGNI BOSHLASH</span>
+                        </button>
+                        <button class="btn-secondary-epic" data-nav="dojo" id="hero-btn-open-dojo">
+                            <span>🖐️ JUTSU DOJO MASHQI</span>
+                        </button>
+                        <button class="btn-secondary-epic" data-nav="codex" id="hero-btn-open-codex">
+                            <span>📜 NINJA QAHRAMONLARI</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Modes Cards -->
+            <div class="modes-grid">
+                <article class="mode-card" data-mode="pve" id="mode-card-pve">
+                    <div class="mode-icon">🤖</div>
+                    <h3>Yakka Duel (VS Bot)</h3>
+                    <p>Sun'iy intellektga ega shinobi bilan 1v1 jang qiling. Genin, Chunin, Jonin va Hokage darajalari mavjud.</p>
+                </article>
+
+                <article class="mode-card" data-mode="pvp" id="mode-card-pvp">
+                    <div class="mode-icon">👥</div>
+                    <h3>2 O'yinchi Rejimi (PVP)</h3>
+                    <p>Bitta klaviatura orqali do'stingiz bilan haqiqiy shinobi to'qnashuvida kuch sinashing!</p>
+                </article>
+
+                <article class="mode-card" data-nav="dojo" id="mode-card-dojo">
+                    <div class="mode-icon">⚡</div>
+                    <h3>Chakra Qo'l Belgilari (Dojo)</h3>
+                    <p>Haqiqiy ninja muhrlari (Yo'lbars, Ilon, Ajdarho) kombinatsiyasini terib, jutsu chaqirish refleksini mashq qiling.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 2: CHARACTER SELECT SCREEN ================= -->
+        <section id="view-char_select" class="app-view">
+            <div class="char-select-header">
+                <h2>O'z Shinobiyingizni Tanlang</h2>
+                <p>Jang uchun qahramon tanlang va jang maydoniga kiring</p>
+            </div>
+
+            <!-- Character Roster Grid -->
+            <div class="roster-grid" id="char-select-roster">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Matchup Preview Bar -->
+            <div class="matchup-preview-bar">
+                <div class="preview-fighter-box p1" id="select-p1-preview">
+                    <!-- Injected via JS -->
+                </div>
+
+                <div class="vs-center-col">
+                    <div class="vs-badge-epic">VS</div>
+                    <div class="difficulty-select-wrap">
+                        <label for="ai-difficulty-select">Qiyinlik darajasi:</label>
+                        <select id="ai-difficulty-select" class="nav-btn">
+                            <option value="Genin">Genin (Oson)</option>
+                            <option value="Chunin">Chunin (O'rtacha)</option>
+                            <option value="Jonin" selected>Jonin (Qiyin)</option>
+                            <option value="Hokage">Hokage (Ekstremal)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="preview-fighter-box p2" id="select-p2-preview">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+
+            <div class="char-select-controls">
+                <button class="btn-secondary-epic" data-nav="title" id="btn-back-to-menu">⬅ Ortga</button>
+                <button class="btn-epic" data-nav="battle" id="btn-confirm-battle">ARENAGA KIRISH ⚔️</button>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 3: BATTLE ARENA VIEW ================= -->
+        <section id="view-battle" class="app-view">
+            <div class="battle-view-container">
+                <!-- Top HUD with HP & Chakra Meters -->
+                <div class="battle-hud-top">
+                    <!-- Player 1 Status -->
+                    <div class="hud-fighter-section p1">
+                        <img src="assets/naruto.jpg" id="hud-p1-avatar" class="hud-avatar" alt="Player 1">
+                        <div class="hud-bars-container">
+                            <div class="hud-name">
+                                <span id="hud-p1-name">Naruto Uzumaki</span>
+                                <span class="hud-tag">P1</span>
+                            </div>
+                            <!-- HP Bar -->
+                            <div class="bar-wrap">
+                                <div class="meter-fill hp-fill" id="hud-p1-hp" style="width: 100%;"></div>
+                            </div>
+                            <!-- Chakra Bar -->
+                            <div class="bar-wrap chakra-wrap">
+                                <div class="meter-fill chakra-fill" id="hud-p1-chakra" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Battle Timer -->
+                    <div class="hud-timer-box" id="battle-timer">99</div>
+
+                    <!-- Player 2 Status -->
+                    <div class="hud-fighter-section p2">
+                        <img src="assets/sasuke.jpg" id="hud-p2-avatar" class="hud-avatar" alt="Player 2">
+                        <div class="hud-bars-container">
+                            <div class="hud-name">
+                                <span class="hud-tag">CPU</span>
+                                <span id="hud-p2-name">Sasuke Uchiha</span>
+                            </div>
+                            <!-- HP Bar -->
+                            <div class="bar-wrap">
+                                <div class="meter-fill hp-fill" id="hud-p2-hp" style="width: 100%;"></div>
+                            </div>
+                            <!-- Chakra Bar -->
+                            <div class="bar-wrap chakra-wrap">
+                                <div class="meter-fill chakra-fill" id="hud-p2-chakra" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Battle Canvas Viewport -->
+                <div class="canvas-wrapper">
+                    <canvas id="battle-canvas" width="1000" height="550"></canvas>
+                    <!-- Cinematic Jutsu Cut-in Flash Overlay -->
+                    <div id="jutsu-cutin-banner" class="jutsu-cutin-banner" aria-hidden="true"></div>
+                </div>
+
+                <!-- On-Screen Virtual Controls & Gamepad -->
+                <div class="touch-controls-container">
+                    <!-- Left: Movement & Defense -->
+                    <div class="touch-dpad">
+                        <button class="ctrl-btn" id="btn-touch-left">⬅ Chapga <span class="hotkey">[A]</span></button>
+                        <button class="ctrl-btn" id="btn-touch-jump">⬆ Sakrash <span class="hotkey">[W]</span></button>
+                        <button class="ctrl-btn" id="btn-touch-right">➡ O'ngga <span class="hotkey">[D]</span></button>
+                        <button class="ctrl-btn" id="btn-touch-guard">🛡 Blok <span class="hotkey">[S]</span></button>
+                        <button class="ctrl-btn" id="btn-touch-dodge">🪵 Kawarimi <span class="hotkey">[L]</span></button>
+                    </div>
+
+                    <!-- Right: Attacks, Jutsus & Chakra -->
+                    <div class="touch-actions">
+                        <button class="ctrl-btn" id="btn-touch-charge">🌀 Chakra Yig'ish <span class="hotkey">[Bo'sh joy]</span></button>
+                        <button class="ctrl-btn" id="btn-touch-light">🗡 Kunai Zarb <span class="hotkey">[J]</span></button>
+                        <button class="ctrl-btn" id="btn-touch-heavy">💥 Kuchli Tepki <span class="hotkey">[K]</span></button>
+                        <button class="ctrl-btn btn-jutsu" id="btn-touch-j1">⚡ Jutsu 1 <span class="hotkey">[U]</span></button>
+                        <button class="ctrl-btn btn-jutsu" id="btn-touch-j2">🔥 Jutsu 2 <span class="hotkey">[I]</span></button>
+                        <button class="ctrl-btn btn-ult" id="btn-touch-ult">🌪 ULTIMATE JUTSU <span class="hotkey">[O]</span></button>
+                    </div>
+                </div>
+
+                <!-- Keyboard Guide Help -->
+                <div class="keyboard-guide-bar">
+                    <span><strong>1-O'yinchi:</strong> [A/D] Harakat | [W] Sakrash | [S] Blok | [J] Kunai | [K] Tepki | [L] Kawarimi (Log) | [U] Jutsu 1 | [I] Jutsu 2 | [O] Ultimate | [Space] Chakra</span>
+                    <span><strong>2-O'yinchi (PVP):</strong> [← / →] Harakat | [↑] Sakrash | [↓] Blok | [Num 1] Zarb | [Num 2] Tepki | [Num 3] Kawarimi | [Num 4] Jutsu 1 | [Num 5] Jutsu 2 | [Num 6] Ultimate</span>
+                </div>
+            </div>
+
+            <!-- Battle Result Modal -->
+            <div id="battle-result-modal" class="battle-modal-overlay">
+                <div class="result-card">
+                    <h3 id="modal-result-title" class="result-title victory">G'ALABA! 🏆</h3>
+                    <p id="modal-result-desc" class="result-desc">Ajoyib jang! Shinobi mahoratingiz namoyon bo'ldi!</p>
+                    <div class="result-modal-actions">
+                        <button class="btn-epic" id="rematch-btn">Qayta Jang ⚔️</button>
+                        <button class="btn-secondary-epic" data-nav="char_select" id="change-fighter-btn">Qahramonni O'zgartirish</button>
+                        <button class="btn-secondary-epic" id="return-menu-btn">Bosh Menyu 🏠</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 4: HAND SEALS DOJO ================= -->
+        <section id="view-dojo" class="app-view">
+            <div class="dojo-view-container">
+                <!-- Dojo Banner Overlay -->
+                <div id="dojo-unleash-overlay" class="dojo-unleash-overlay"></div>
+
+                <div class="dojo-header">
+                    <h2>Chakra Qo'l Belgilari Mashg'uloti</h2>
+                    <p>Haqiqiy ninja muhrlarini to'g'ri ketma-ketlikda tez bosing va kuchli jutsularni uyg'oting!</p>
+                </div>
+
+                <div class="dojo-stats-bar">
+                    <div>Ball: <span class="stat-val" id="dojo-score">0</span></div>
+                    <div>Seriya (Streak): <span class="stat-val" id="dojo-streak">0</span></div>
+                    <div>Vaqt: <span class="stat-val" id="dojo-timer">12.0s</span></div>
+                    <div>Rekord: <span class="stat-val" id="dojo-best">0</span></div>
+                </div>
+
+                <!-- Current Jutsu Target -->
+                <div class="dojo-challenge-box">
+                    <h3 id="dojo-jutsu-name">Fire Style: Fireball Jutsu</h3>
+                    <div class="dojo-difficulty-tag" id="dojo-difficulty">Rank: Chunin | Mukofot: 50 ball</div>
+                    <!-- Required Sequence -->
+                    <div class="dojo-sequence-display" id="dojo-sequence-display">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <div class="dojo-feedback" id="dojo-status">Quyidagi muhr tugmalarini ketma-ket bosing yoki klaviaturadagi [1 - 8] raqamlarini bosing!</div>
+
+                <!-- 8 Interactive Seals Grid -->
+                <div class="dojo-seals-grid" id="dojo-seals-grid">
+                    <!-- Injected via JS -->
+                </div>
+
+                <div style="text-align: center; margin-top: 25px;">
+                    <button class="btn-epic" id="start-dojo-btn" style="margin: 0 auto;">🔄 Mashqni Qaytadan Boshlash</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 5: SHINOBI CODEX ================= -->
+        <section id="view-codex" class="app-view">
+            <div class="codex-view-container">
+                <div class="codex-header">
+                    <h2>Shinobi Entsiklopediyasi</h2>
+                    <p>Har bir qahramonning qobiliyatlari, jutsulari va jangovar xususiyatlari bilan tanishing</p>
+                </div>
+
+                <div class="codex-grid" id="codex-container">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>NARUTO: SHINOBI CLASH © 2026. Barcha huquqlar himoyalangan. HTML5 Canvas & Web Audio API bilan yaratilgan.</p>
+    </footer>
+
+    <!-- Game Scripts -->
+    <script src="audio.js"></script>
+    <script src="characters.js"></script>
+    <script src="particles.js"></script>
+    <script src="game.js"></script>
+    <script src="handseals.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

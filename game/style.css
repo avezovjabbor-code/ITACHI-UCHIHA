@@ -1,0 +1,1317 @@
+/* Naruto: Shinobi Clash - Premium Anime Battle UI Styling */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@600;800;900&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #07090e;
+    --bg-card: rgba(18, 23, 35, 0.85);
+    --bg-glass: rgba(25, 33, 52, 0.65);
+    --border-glass: rgba(255, 152, 0, 0.25);
+    --chakra-orange: #ff7a00;
+    --chakra-gold: #ffb703;
+    --sharingan-red: #ff1744;
+    --chidori-blue: #00e5ff;
+    --amaterasu-dark: #121212;
+    --susanoo-purple: #b388ff;
+    --konoha-green: #00e676;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --shadow-glow: 0 0 25px rgba(255, 122, 0, 0.35);
+    --shadow-red-glow: 0 0 25px rgba(255, 23, 68, 0.4);
+    --shadow-blue-glow: 0 0 25px rgba(0, 229, 255, 0.4);
+    --font-heading: 'Orbitron', 'Cinzel', sans-serif;
+    --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(255, 122, 0, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(0, 229, 255, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(179, 136, 255, 0.05) 0%, transparent 60%);
+}
+
+/* Background animated particles container */
+.bg-ambient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    opacity: 0.6;
+}
+
+/* App Header */
+.app-header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    background: rgba(10, 14, 22, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 152, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+}
+
+.brand-logo-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--chakra-orange);
+    box-shadow: 0 0 15px rgba(255, 122, 0, 0.5);
+    object-fit: cover;
+}
+
+.brand-text h1 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    background: linear-gradient(135deg, #fff 20%, var(--chakra-gold) 60%, var(--chakra-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.brand-subtitle {
+    font-size: 0.75rem;
+    color: var(--chakra-gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 122, 0, 0.15);
+    border-color: var(--chakra-orange);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(255, 122, 0, 0.3);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-pill {
+    background: rgba(255, 122, 0, 0.12);
+    border: 1px solid var(--chakra-orange);
+    color: var(--chakra-gold);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-pill:hover {
+    background: var(--chakra-orange);
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 122, 0, 0.5);
+}
+
+.btn-pill.muted {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-muted);
+}
+
+/* Main Views Container */
+.main-content {
+    position: relative;
+    z-index: 5;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.app-view {
+    display: none;
+    animation: fadeInView 0.35s ease forwards;
+}
+
+.app-view.active {
+    display: block;
+}
+
+@keyframes fadeInView {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= TITLE / HERO VIEW ================= */
+.hero-section {
+    position: relative;
+    min-height: 520px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(7, 9, 14, 0.95) 0%, rgba(7, 9, 14, 0.75) 50%, rgba(7, 9, 14, 0.3) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    padding: 50px 45px;
+}
+
+.hero-badge-tag {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--chakra-orange), var(--sharingan-red));
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(255, 122, 0, 0.6);
+}
+
+.hero-title span {
+    background: linear-gradient(135deg, var(--chakra-gold) 0%, var(--chakra-orange) 50%, var(--sharingan-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-kanji {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--chakra-gold);
+    margin-bottom: 16px;
+    letter-spacing: 3px;
+}
+
+.hero-desc {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-action-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn-epic {
+    background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+    border: none;
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 25px rgba(255, 152, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-epic:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 35px rgba(255, 152, 0, 0.8);
+    background: linear-gradient(135deg, #ffb703 0%, #ff7a00 100%);
+}
+
+.btn-secondary-epic {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-secondary-epic:hover {
+    background: rgba(0, 229, 255, 0.15);
+    border-color: var(--chidori-blue);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+}
+
+/* Mode Selection Cards Grid */
+.modes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.mode-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 26px;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.mode-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--chakra-orange);
+    transition: width 0.3s ease;
+}
+
+.mode-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 152, 0, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), var(--shadow-glow);
+}
+
+.mode-card:hover::before {
+    width: 6px;
+}
+
+.mode-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+}
+
+.mode-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.mode-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ================= CHARACTER SELECT VIEW ================= */
+.char-select-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.char-select-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #fff 0%, var(--chakra-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.roster-card {
+    background: var(--bg-glass);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.roster-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--chakra-gold);
+    box-shadow: 0 0 20px rgba(255, 183, 3, 0.3);
+}
+
+.roster-card.selected-p1 {
+    border-color: var(--chakra-orange);
+    box-shadow: 0 0 25px rgba(255, 122, 0, 0.6);
+}
+
+.roster-card.selected-p1::after {
+    content: 'P1 CHOSEN';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--chakra-orange);
+    color: #000;
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.roster-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.roster-info {
+    padding: 16px;
+}
+
+.roster-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.roster-title {
+    font-size: 0.8rem;
+    color: var(--chakra-gold);
+    margin-bottom: 10px;
+}
+
+.roster-stat-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Versus Matchup Bar */
+.matchup-preview-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10, 14, 22, 0.9);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.preview-fighter-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 42%;
+}
+
+.preview-fighter-box.p2 {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.preview-fighter-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--chakra-orange);
+    box-shadow: 0 0 18px rgba(255, 122, 0, 0.4);
+}
+
+.preview-fighter-box.p2 img {
+    border-color: var(--chidori-blue);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.4);
+}
+
+.preview-meta h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+}
+
+.preview-meta p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.jutsu-preview-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.jutsu-preview-list span {
+    font-size: 0.72rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: #e2e8f0;
+}
+
+.vs-badge-epic {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--sharingan-red);
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+    font-style: italic;
+}
+
+.char-select-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ================= BATTLE VIEW & HUD ================= */
+.battle-view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.battle-hud-top {
+    width: 1000px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(12, 16, 26, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 12px 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.hud-fighter-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 42%;
+}
+
+.hud-fighter-section.p2 {
+    flex-direction: row-reverse;
+}
+
+.hud-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--chakra-gold);
+    box-shadow: 0 0 12px rgba(255, 183, 3, 0.4);
+}
+
+.hud-bars-container {
+    flex: 1;
+}
+
+.hud-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-fighter-section.p2 .hud-name {
+    flex-direction: row-reverse;
+}
+
+.bar-wrap {
+    height: 18px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 6px;
+}
+
+.bar-wrap.chakra-wrap {
+    height: 12px;
+}
+
+.meter-fill {
+    height: 100%;
+    width: 100%;
+    transition: width 0.15s ease-out;
+}
+
+.meter-fill.hp-fill {
+    background: linear-gradient(90deg, #ff1744 0%, #ff9800 60%, #00e676 100%);
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+}
+
+.meter-fill.chakra-fill {
+    background: linear-gradient(90deg, #00b0ff 0%, #00e5ff 100%);
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+}
+
+.hud-timer-box {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffeb3b;
+    text-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
+    padding: 0 15px;
+}
+
+/* Battle Canvas Screen */
+.canvas-wrapper {
+    position: relative;
+    width: 1000px;
+    max-width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 152, 0, 0.35);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 122, 0, 0.2);
+    background: #000;
+}
+
+#battle-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1000 / 550;
+}
+
+/* Cinematic Jutsu Cut-In Overlay */
+.jutsu-cutin-banner {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.jutsu-cutin-banner.active {
+    opacity: 1;
+}
+
+.jutsu-cutin-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(90deg, rgba(255, 122, 0, 0.95), rgba(255, 23, 68, 0.95));
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    padding: 20px 60px;
+    width: 100%;
+    transform: skewX(-12deg);
+    box-shadow: 0 0 50px rgba(255, 122, 0, 0.8);
+    animation: cutinSlide 0.3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+.jutsu-cutin-content.p2 {
+    background: linear-gradient(90deg, rgba(0, 229, 255, 0.95), rgba(124, 77, 255, 0.95));
+    box-shadow: 0 0 50px rgba(0, 229, 255, 0.8);
+}
+
+@keyframes cutinSlide {
+    from { transform: skewX(-12deg) scale(1.15) translateY(-20px); opacity: 0; }
+    to { transform: skewX(-12deg) scale(1) translateY(0); opacity: 1; }
+}
+
+.jutsu-cutin-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    object-fit: cover;
+    transform: skewX(12deg);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+.jutsu-cutin-text {
+    transform: skewX(12deg);
+    color: #fff;
+}
+
+.jutsu-japanese {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: #ffeb3b;
+    margin-bottom: 4px;
+}
+
+.jutsu-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.jutsu-caller {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+/* Touch Controls & Virtual Keypad */
+.touch-controls-container {
+    width: 1000px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    gap: 15px;
+}
+
+.touch-dpad, .touch-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ctrl-btn {
+    background: rgba(22, 29, 44, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ctrl-btn span.hotkey {
+    font-size: 0.65rem;
+    color: var(--chakra-gold);
+    margin-top: 2px;
+}
+
+.ctrl-btn:active {
+    transform: scale(0.95);
+    background: rgba(255, 122, 0, 0.3);
+    border-color: var(--chakra-orange);
+}
+
+.ctrl-btn.btn-jutsu {
+    background: rgba(255, 122, 0, 0.18);
+    border-color: var(--chakra-orange);
+    color: var(--chakra-gold);
+}
+
+.ctrl-btn.btn-ult {
+    background: linear-gradient(135deg, rgba(255, 23, 68, 0.3), rgba(255, 122, 0, 0.3));
+    border-color: var(--sharingan-red);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(255, 23, 68, 0.4);
+}
+
+.ctrl-btn.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+/* Keyboard guide helper */
+.keyboard-guide-bar {
+    width: 1000px;
+    max-width: 100%;
+    background: rgba(10, 14, 22, 0.6);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.keyboard-guide-bar strong {
+    color: var(--chakra-gold);
+}
+
+/* Battle Result Modal */
+.battle-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(14px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.battle-modal-overlay.active {
+    display: flex;
+    animation: fadeInModal 0.3s ease forwards;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.result-card {
+    background: rgba(18, 23, 35, 0.95);
+    border: 2px solid var(--chakra-orange);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 50px rgba(255, 122, 0, 0.5);
+}
+
+.result-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.result-title.victory {
+    color: #ffd700;
+    text-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+}
+
+.result-title.defeat {
+    color: var(--sharingan-red);
+    text-shadow: 0 0 25px rgba(255, 23, 68, 0.7);
+}
+
+.result-title.draw {
+    color: #00e5ff;
+}
+
+.result-desc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.result-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* ================= HAND SEALS DOJO VIEW ================= */
+.dojo-view-container {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 152, 0, 0.25);
+    border-radius: 20px;
+    padding: 35px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.dojo-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.dojo-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff 0%, var(--chakra-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dojo-stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(10, 14, 22, 0.7);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+}
+
+.dojo-stats-bar span.stat-val {
+    color: var(--chakra-gold);
+    font-weight: 800;
+    margin-left: 6px;
+}
+
+.dojo-challenge-box {
+    text-align: center;
+    background: rgba(22, 29, 44, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 30px;
+}
+
+.dojo-challenge-box h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.dojo-difficulty-tag {
+    font-size: 0.85rem;
+    color: var(--chakra-orange);
+    margin-bottom: 20px;
+}
+
+.dojo-sequence-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.seal-step-box {
+    background: rgba(10, 14, 22, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 90px;
+    transition: all 0.2s ease;
+}
+
+.seal-step-box.completed {
+    border-color: #00e676;
+    background: rgba(0, 230, 118, 0.15);
+    box-shadow: 0 0 12px rgba(0, 230, 118, 0.4);
+}
+
+.seal-step-box.current {
+    border-color: var(--chakra-gold);
+    background: rgba(255, 183, 3, 0.2);
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(255, 183, 3, 0.5);
+}
+
+.seal-step-kanji {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.seal-step-name {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.seal-step-key {
+    font-size: 0.7rem;
+    color: var(--chakra-gold);
+    font-family: var(--font-heading);
+}
+
+.dojo-feedback {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    min-height: 28px;
+    margin-bottom: 20px;
+}
+
+.dojo-feedback.success { color: #00e676; text-shadow: 0 0 10px rgba(0, 230, 118, 0.6); }
+.dojo-feedback.fail { color: var(--sharingan-red); text-shadow: 0 0 10px rgba(255, 23, 68, 0.6); }
+.dojo-feedback.gameover { color: #ffeb3b; }
+
+.dojo-seals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.dojo-seal-btn {
+    background: rgba(24, 32, 50, 0.8);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.dojo-seal-btn:hover {
+    background: rgba(255, 122, 0, 0.2);
+    border-color: var(--chakra-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 122, 0, 0.4);
+}
+
+.dojo-seal-btn:active {
+    transform: scale(0.96);
+}
+
+.seal-kanji {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: var(--chakra-gold);
+}
+
+.seal-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.seal-badge {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.dojo-unleash-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+}
+
+.dojo-unleash-overlay.active {
+    opacity: 1;
+}
+
+.unleash-card {
+    text-align: center;
+    padding: 30px 60px;
+    border-top: 3px solid var(--chakra-gold);
+    border-bottom: 3px solid var(--chakra-gold);
+    background: linear-gradient(90deg, rgba(255, 122, 0, 0.9), rgba(255, 23, 68, 0.9));
+    color: #fff;
+}
+
+.unleash-kanji {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #ffeb3b;
+}
+
+.unleash-title {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+
+.unleash-sub {
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+/* ================= SHINOBI CODEX VIEW ================= */
+.codex-view-container {
+    padding: 10px 0;
+}
+
+.codex-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.codex-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.3rem;
+    background: linear-gradient(135deg, #fff 0%, var(--chakra-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+
+.codex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+}
+
+.codex-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 152, 0, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+}
+
+.codex-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--chakra-gold);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), var(--shadow-glow);
+}
+
+.codex-avatar-box {
+    width: 200px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.codex-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.codex-village-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--chakra-gold);
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.codex-details {
+    padding: 24px;
+    flex: 1;
+}
+
+.codex-name {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.codex-title {
+    font-size: 0.85rem;
+    color: var(--chakra-gold);
+    margin-bottom: 12px;
+}
+
+.codex-quote {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border-left: 2px solid var(--chakra-orange);
+    padding-left: 10px;
+    margin-bottom: 16px;
+}
+
+.codex-passive-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+}
+
+.codex-passive-box strong {
+    color: var(--chidori-blue);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.codex-stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+.stat-row span {
+    width: 75px;
+    color: var(--text-secondary);
+}
+
+.stat-meter {
+    flex: 1;
+    height: 7px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-meter div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--chakra-orange), var(--chakra-gold));
+    border-radius: 4px;
+}
+
+.codex-jutsu-accordion h4 {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+}
+
+.codex-jutsu-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+}
+
+.jutsu-item-hdr {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.jutsu-badge {
+    color: var(--chakra-gold);
+}
+
+.jutsu-jp {
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+}
+
+.jutsu-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 3px;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 40px;
+}
+
+/* Responsive queries */
+@media (max-width: 900px) {
+    .codex-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .preview-fighter-box {
+        width: 48%;
+    }
+    .dojo-seals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
